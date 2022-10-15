@@ -1,0 +1,41 @@
+﻿<Window x:Class="WpfApp_Cruciquiz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_Cruciquiz"
+        mc:Ignorable="d"
+        Title="Andrea Maria Castronovo - 4°I - 24/09/2022" Height="675" Width="1200"
+        SizeChanged="Window_SizeChanged">
+    <Grid>
+        <!--Colore per caricare la matrice-->
+        <Button FontSize="25" Name="btnLoadMatrix" Width="166" Height="100" Click="btnLoadMatrix_Click" Content="Carica _puzzle" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+        <Label Name="lblDimConsentite" Margin="10,161,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Max puzzle NxM" Height="50" Width="306"  FontSize="30"/>
+        <!--Griglia in cui verrà generata la matrice di bottoni-->
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Center" Name="grdMatrix" Width="600" Height="600" Margin="0,0,10,0"/>
+
+        <!--Riquadro ricerca parola-->
+        <Grid Name="grdSearchWord" Visibility="Hidden" Height="192" Width="333" HorizontalAlignment="Left" Margin="10,0,0,0">
+            <Label FontSize="25" Content="Ricerca parola" HorizontalAlignment="Center"     Margin="0,0,0,90" VerticalAlignment="Center"/>
+            <TextBox Name="txtWordToSearch" FontSize="25" HorizontalAlignment="Center"     Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="286"/>
+            <Button Name="btnSearch" Click="btnSearch_Click" FontSize="25" Content="_Cerca" Margin="0,100,0,0" Width="150" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+
+        <!--Indice colori-->
+        <Grid Name="grdColorIndex"  Visibility="Hidden" Height="200" Width="333" Margin="10,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <!--Colore verde-->
+            <Rectangle Grid.Row="1" Margin="10,0,0,0"  HorizontalAlignment="Left" Height="56" Stroke="Black" Fill="LightGreen" VerticalAlignment="Center" Width="55"/>
+            <Label Grid.Row="1" Margin="70,0,0,0" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Parola trovata"/>
+
+            <!--Colore arancione-->
+            <Rectangle Grid.Row="0" Margin="10,0,0,0"  HorizontalAlignment="Left" Height="56" Stroke="Black" Fill="LightSalmon"  VerticalAlignment="Center" Width="55"/>
+            <Label Grid.Row="0" Margin="70,0,0,0" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Ultima parola trovata"/>
+        </Grid>
+        <Button Click="btnCheckSolution_Click" FontSize="25" x:Name="btnCheckSolution" Width="166" Height="100" Content="Controlla &#xD;&#xA;soluzione" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="181,10,0,0"/>
+    </Grid>
+</Window>
